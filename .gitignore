@@ -1,0 +1,6 @@
+/data/
+message-hub
+message-hub.exe
+*.exe~
+/web/dist/
+/web/node_modules/

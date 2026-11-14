@@ -1,0 +1,33 @@
+services:
+  message-hub:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/data
+      # HTTPS（自动生成自签证书）：
+      # - ./certs:/certs
+      # HTTPS 双向认证（mTLS，不依赖 Nginx）：
+      # - ./certs/server.crt:/certs/server.crt:ro
+      # - ./certs/server.key:/certs/server.key:ro
+      # - ./certs/ca.crt:/certs/ca.crt:ro
+    # command:
+    #   - "-addr"
+    #   - ":8443"
+    #   - "-data"
+    #   - "/data"
+    #   - "-cert"
+    #   - "/certs/server.crt"
+    #   - "-key"
+    #   - "/certs/server.key"
+    #   - "-client-ca"
+    #   - "/certs/ca.crt"
+    #   - "-base-url"
+    #   - "https://msg.example.com"
+    #   - "-smtp-host"
+    #   - "smtp.example.com"
+    #   - "-oauth-github-client-id"
+    #   - "xxx"
+    #   - "-oauth-github-client-secret"
+    #   - "yyy"
+    restart: unless-stopped
